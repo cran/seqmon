@@ -57,4 +57,4 @@ Armitage, P., McPherson, C. K. and Rowe, B. C. (1969)
   ``A multiple testing procedure for clinical trials'', \emph{Biometrics}, 35 , 549-556 
 }
 \keyword{design}
-\keword{htest}
+\keyword{htest}
