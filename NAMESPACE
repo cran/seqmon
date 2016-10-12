@@ -1,5 +1,23 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
-
-# Export all names
-exportPattern(".")
+exportPattern("^[[:alpha:]]+")
+exportMethods(
+    "calcBoundaries",
+    "curtailDesign",
+    "getProbabilities",
+    "plotBoundaries",
+    "printSummary",
+    "setAlphaspendfString",
+    "setBaseAlphaspendf",
+    "setBaseBetaspendf",
+    "setBetaspendfString",
+    "setCurrentLook",
+    "setDatestamp",
+    "setNoncentrality",
+    "setTimes",
+    "updateDesign" 
+)
+importFrom("graphics", "axis", "legend", "matplot")
+importFrom("methods", "new")
+importFrom("stats", "pnorm", "qnorm", "uniroot")
+exportClasses(
+    "sequential.design" 
+)
