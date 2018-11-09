@@ -7,7 +7,8 @@
 \alias{curtailDesign,sequential.design-method}
 \alias{getProbabilities,sequential.design-method}
 \alias{plotBoundaries,sequential.design-method}
-\alias{printSummary,sequential.design-method}
+\alias{print,sequential.design-method}
+\alias{summary,sequential.design-method}
 \alias{setAlphaspendfString,sequential.design-method}
 \alias{setBaseAlphaspendf,sequential.design-method}
 \alias{setBaseBetaspendf,sequential.design-method}
@@ -24,27 +25,27 @@ The sequential design class
 }
 \section{Objects from the Class}{
 Objects can be created by calls of the form \code{sequential.design(...)}.
-%%  ~~ describe objects here ~~ 
+%%  ~~ describe objects here ~~
 }
 \section{Slots}{
   \describe{
-    \item{\code{lower.boundary}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{upper.boundary}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{times}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{noncentrality}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{base.alpha.spend}:}{Object of class \code{"function"} ~~ }
-    \item{\code{base.beta.spend}:}{Object of class \code{"function"} ~~ }
-    \item{\code{base.alpha.spend.string}:}{Object of class \code{"character"} ~~ }
-    \item{\code{base.beta.spend.string}:}{Object of class \code{"character"} ~~ }
-    \item{\code{current.look}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{current.alpha.spend}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{current.beta.spend}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{times.history}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{alpha.spent.history}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{beta.spent.history}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{alpha.func.history}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{beta.func.history}:}{Object of class \code{"numeric"} ~~ }
-    \item{\code{date.stamp}:}{Object of class \code{"POSIXct"} ~~ }
+    \item{\code{lower.boundary}:}{Object of class \code{"numeric"}  }
+    \item{\code{upper.boundary}:}{Object of class \code{"numeric"}  }
+    \item{\code{times}:}{Object of class \code{"numeric"}  }
+    \item{\code{noncentrality}:}{Object of class \code{"numeric"}  }
+    \item{\code{base.alpha.spend}:}{Object of class \code{"function"}  }
+    \item{\code{base.beta.spend}:}{Object of class \code{"function"}  }
+    \item{\code{base.alpha.spend.string}:}{Object of class \code{"character"}  }
+    \item{\code{base.beta.spend.string}:}{Object of class \code{"character"}  }
+    \item{\code{current.look}:}{Object of class \code{"numeric"}  }
+    \item{\code{current.alpha.spend}:}{Object of class \code{"numeric"}  }
+    \item{\code{current.beta.spend}:}{Object of class \code{"numeric"}  }
+    \item{\code{times.history}:}{Object of class \code{"numeric"}  }
+    \item{\code{alpha.spent.history}:}{Object of class \code{"numeric"}  }
+    \item{\code{beta.spent.history}:}{Object of class \code{"numeric"}  }
+    \item{\code{alpha.func.history}:}{Object of class \code{"numeric"}  }
+    \item{\code{beta.func.history}:}{Object of class \code{"numeric"}  }
+    \item{\code{date.stamp}:}{Object of class \code{"POSIXct"}  }
   }
 }
 \section{Methods}{
@@ -53,7 +54,8 @@ Objects can be created by calls of the form \code{sequential.design(...)}.
     \item{curtailDesign}{\code{signature(theObject = "sequential.design")}: ... }
     \item{getProbabilities}{\code{signature(theObject = "sequential.design")}: ... }
     \item{plotBoundaries}{\code{signature(theObject = "sequential.design")}: ... }
-    \item{printSummary}{\code{signature(theObject = "sequential.design")}: ... }
+    \item{print}{\code{signature(theObject = "sequential.design")}: ... }
+    \item{summary}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setAlphaspendfString}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setBaseAlphaspendf}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setBaseBetaspendf}{\code{signature(theObject = "sequential.design")}: ... }

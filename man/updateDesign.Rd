@@ -20,6 +20,9 @@ updateDesign(theObject, futureTimes)
 }
 }
 \details{The efficacy and futility boundaries will be updated according to the new future look times. If the new final look is before the planned final look, the efficacy and futility boundaries will be updated, but the alpha and beta spending functions need not be updated. If the new final look is after the planned final look, the efficacy and futility boundaries will be updated, as well as the alpha and beta spending functions.
+The details are given in Proschan, Lan, and
+Wittes(2006) and Schoenfeld (2001).
+No historical information such as the past look times, the past alpha and beta spent, or the baseline spending function is updated.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{

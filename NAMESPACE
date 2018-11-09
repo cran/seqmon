@@ -4,7 +4,8 @@ exportMethods(
     "curtailDesign",
     "getProbabilities",
     "plotBoundaries",
-    "printSummary",
+    "print",
+    "summary",
     "setAlphaspendfString",
     "setBaseAlphaspendf",
     "setBaseBetaspendf",
@@ -13,11 +14,12 @@ exportMethods(
     "setDatestamp",
     "setNoncentrality",
     "setTimes",
-    "updateDesign" 
+    "updateDesign"
 )
 importFrom("graphics", "axis", "legend", "matplot")
 importFrom("methods", "new")
 importFrom("stats", "pnorm", "qnorm", "uniroot")
 exportClasses(
-    "sequential.design" 
+    "sequential.design"
 )
+

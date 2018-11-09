@@ -25,11 +25,11 @@ prototype=list(lower.boundary=0,
 		noncentrality=(qnorm(0.975)+qnorm(.80)),
 		base.alpha.spend=alphaspendf,
 		base.beta.spend=betaspendf,
-		base.alpha.spend.string="",
-    base.beta.spend.string="",
+		base.alpha.spend.string="0.025*t^4",
+    		base.beta.spend.string="0.15*t^3",
 		current.look=0,
 		current.alpha.spend=1,
-    current.beta.spend=1,
+    		current.beta.spend=1,
 		times.history=0,
 		alpha.spent.history=0,
 		beta.spent.history=0,
@@ -320,36 +320,82 @@ setMethod(f="plotBoundaries",
                       }
                       )
 
-setGeneric(name="printSummary",
+setGeneric(name="summary",
                        def=function(theObject)
                        {
-                               standardGeneric("printSummary")
+                               standardGeneric("summary")
                        }
                        )
 
-setMethod(f="printSummary",
+setMethod(f="summary",
                       signature="sequential.design",
                       definition=function(theObject)
                       { normalizedTimes<-theObject@times/max(theObject@times)
 			n.int<-1000*rep(1,length(normalizedTimes))
-			
-			under_null<-matrix(seqmon(theObject@lower.boundary,theObject@upper.boundary,normalizedTimes,int=n.int),ncol=2)
-			colnames(under_null)<-c("Cumulative prob of futility under null hypothesis","Cumulative prob of efficacy under null hypothesis")
-			under_alt<-matrix(seqmon(theObject@lower.boundary-theObject@noncentrality*sqrt(normalizedTimes),theObject@upper.boundary-theObject@noncentrality*sqrt(normalizedTimes),normalizedTimes,int=n.int),ncol=2)
-			colnames(under_alt)<-c("Cumulative prob of futility under alternative hypothesis","Cumulative prob of efficacy under alternative hypothesis")
-			pVal.upper<-matrix(1-pnorm(theObject@upper.boundary,0,1),ncol=1)
-			colnames(pVal.upper)<-c("p-value for efficacy")
-			pVal.lower<-matrix(1-pnorm(theObject@lower.boundary,0,1),ncol=1)
-			colnames(pVal.lower)<-c("p-value for futility")
-			lower<-matrix(theObject@lower.boundary,ncol=1)
-			colnames(lower)<-c("Futility boundary for Z")
-			upper<-matrix(theObject@upper.boundary,ncol=1)
-			colnames(upper)<-c("Efficacy boundary for Z")
+      if (length(theObject@times)==length(theObject@upper.boundary))
+        {under_null<-matrix(seqmon(theObject@lower.boundary,theObject@upper.boundary,normalizedTimes,int=n.int),ncol=2)
+        colnames(under_null)<-c("Cumulative prob of futility under null hypothesis","Cumulative prob of efficacy under null hypothesis")
+        under_alt<-matrix(seqmon(theObject@lower.boundary-theObject@noncentrality*sqrt(normalizedTimes),theObject@upper.boundary-theObject@noncentrality*sqrt(normalizedTimes),normalizedTimes,int=n.int),ncol=2)
+        colnames(under_alt)<-c("Cumulative prob of futility under alternative hypothesis","Cumulative prob of efficacy under alternative hypothesis")
+        pVal.upper<-matrix(1-pnorm(theObject@upper.boundary,0,1),ncol=1)
+        colnames(pVal.upper)<-c("p-value for efficacy")
+        pVal.lower<-matrix(1-pnorm(theObject@lower.boundary,0,1),ncol=1)
+        colnames(pVal.lower)<-c("p-value for futility")
+        lower<-matrix(theObject@lower.boundary,ncol=1)
+        colnames(lower)<-c("Futility boundary for Z")
+        upper<-matrix(theObject@upper.boundary,ncol=1)
+        colnames(upper)<-c("Efficacy boundary for Z")
+        print.default(t(round(cbind(lower,pVal.lower,upper,pVal.upper,under_null,under_alt),5)))
+      }
+			else cat("Need to calcualte the boundaries\n");
 
-			print(t(format(round(cbind(lower,pVal.lower,upper,pVal.upper,under_null,under_alt),6), nsmall = 1)))
-				
+
                       }
                       )
+
+
+#'Displays the features of the design
+#'
+#''print' displays the look times, the base alpha and beta spending functions, and the noncentrality parameter
+#'
+#'@usage
+#'
+#'print(theObject)
+#'
+#'@examples
+#'design1<-sequential.design()
+#'design1<-calcBoundaries(design1)
+#'design1<-setAlphaspendfString(design1,"0.025*t^4")
+#'design1<-setBetaspendfString(design1,"0.15*t^3")
+#'print(design1)
+
+setGeneric(name="print",
+           def=function(theObject)
+           {
+             standardGeneric("print")
+           }
+)
+
+
+setMethod(f="print",
+          signature="sequential.design",
+          definition=function(theObject)
+          {
+            cat("Look times:",theObject@times,"\n")
+            cat("Base Alpha spending function:",theObject@base.alpha.spend.string,"\n")
+            cat("Base beta spending function:",theObject@base.beta.spend.string,"\n")
+            cat("Noncentrality:",theObject@noncentrality,"\n")
+            cat("Current look:",theObject@current.look,"\n")
+            cat("Current Alpha spending function:", (theObject@base.alpha.spend(1)*(1-theObject@current.alpha.spend)),"+",theObject@current.alpha.spend,'*Base alpha spending function\n');
+            cat("Current Beta spending function:", (theObject@base.beta.spend(1)*(1-theObject@current.beta.spend)),"+",theObject@current.beta.spend,'*Base beta spending function\n');
+            cat("History of look times:", theObject@times.history,"\n");
+            cat("History of Alpha spending:", theObject@alpha.spent.history,"\n");
+            cat("History of Beta spending:", theObject@beta.spent.history,"\n");
+            cat("History of Alpha spending functions used:", theObject@alpha.func.history,"\n");
+            cat("History of Beta spending functions used:", theObject@beta.func.history,"\n");
+
+          })
+
 
 
 setGeneric(name="curtailDesign",

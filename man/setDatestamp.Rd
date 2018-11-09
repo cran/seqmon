@@ -26,6 +26,6 @@ an object of class "sequential.design"
 
 \examples{
 design1<-sequential.design()
-design1<-setDatestamp(design1,as.POSIXct("2015-10-30"))
+design1<-setDatestamp(design1,as.POSIXct("2018-10-30"))
 }
 
