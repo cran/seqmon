@@ -1,60 +1,62 @@
+
 alphaspendf= function(t) 0.025*t^4
 betaspendf=function(t) .15*t^3
 
 
 sequential.design<-setClass("sequential.design",representation(lower.boundary="numeric",	
-                                            upper.boundary="numeric",
-                                            times="numeric",
-                                            noncentrality="numeric",
-                                            base.alpha.spend="function",
-                                            base.beta.spend="function",
-                                            base.alpha.spend.string="character",
-                                            base.beta.spend.string="character",
-					    current.look="numeric",
-					    current.alpha.spend="numeric",
-              current.beta.spend="numeric",
-					    times.history="numeric",
-					    alpha.spent.history="numeric",
-					    beta.spent.history="numeric",
-					    alpha.func.history="numeric",
-					    beta.func.history="numeric",
-                                            date.stamp="POSIXct"),
-prototype=list(lower.boundary=0, 
-		upper.boundary=0,
-		times=c(0.33,0.67,1),
-		noncentrality=(qnorm(0.975)+qnorm(.80)),
-		base.alpha.spend=alphaspendf,
-		base.beta.spend=betaspendf,
-		base.alpha.spend.string="0.025*t^4",
-    		base.beta.spend.string="0.15*t^3",
-		current.look=0,
-		current.alpha.spend=1,
-    		current.beta.spend=1,
-		times.history=0,
-		alpha.spent.history=0,
-		beta.spent.history=0,
-		alpha.func.history=1,
-		beta.func.history=1,
-		power=0.8,
-		date.stamp=Sys.time()
-                ),
-
-validity=function(object)
-        {
-                
-		if(!all(object@times>=0)) {
-                        return("Negative time.")
-                }
-		if((!all(object@base.alpha.spend(seq(0,1,by=0.01))<=1))|(!all(object@base.alpha.spend(seq(0,1,by=0.01))>=0))) {
-                        return("Alpha spending function error")
-                }
-		if((!all(object@base.beta.spend(seq(0,1,by=0.01))<=1))|(!all(object@base.beta.spend(seq(0,1,by=0.01))>=0))) {
-                        return("Beta spending function error")
-                }
-		return(TRUE)
-        }
-
+                                                               upper.boundary="numeric",
+                                                               times="numeric",
+                                                               noncentrality="numeric",
+                                                               base.alpha.spend="function",
+                                                               base.beta.spend="function",
+                                                               base.alpha.spend.string="character",
+                                                               base.beta.spend.string="character",
+                                                               current.look="numeric",
+                                                               current.alpha.spend="numeric",
+                                                               current.beta.spend="numeric",
+                                                               times.history="numeric",
+                                                               alpha.spent.history="numeric",
+                                                               beta.spent.history="numeric",
+                                                               alpha.func.history="numeric",
+                                                               beta.func.history="numeric",
+                                                               date.stamp="POSIXct"),
+                            prototype=list(lower.boundary=0, 
+                                           upper.boundary=0,
+                                           times=c(0.33,0.67,1),
+                                           noncentrality=(qnorm(0.975)+qnorm(.80)),
+                                           base.alpha.spend=alphaspendf,
+                                           base.beta.spend=betaspendf,
+                                           base.alpha.spend.string="0.025*t^4",
+                                           base.beta.spend.string="0.15*t^3",
+                                           current.look=0,
+                                           current.alpha.spend=1,
+                                           current.beta.spend=1,
+                                           times.history=0,
+                                           alpha.spent.history=0,
+                                           beta.spent.history=0,
+                                           alpha.func.history=1,
+                                           beta.func.history=1,
+                                           date.stamp=Sys.time()
+                            ),
+                            
+                            validity=function(object)
+                            {
+                              
+                              if(!all(object@times>=0)) {
+                                return("Negative time.")
+                              }
+                              if((!all(object@base.alpha.spend(seq(0,1,by=0.01))<=1))|(!all(object@base.alpha.spend(seq(0,1,by=0.01))>=0))) {
+                                return("Alpha spending function error")
+                              }
+                              if((!all(object@base.beta.spend(seq(0,1,by=0.01))<=1))|(!all(object@base.beta.spend(seq(0,1,by=0.01))>=0))) {
+                                return("Beta spending function error")
+                              }
+                              return(TRUE)
+                            }
+                            
 )
+
+
 
 setGeneric(name="setTimes",
                        def=function(theObject,time0)
@@ -383,7 +385,7 @@ setMethod(f="print",
           {
             cat("Look times:",theObject@times,"\n")
             cat("Base Alpha spending function:",theObject@base.alpha.spend.string,"\n")
-            cat("Base beta spending function:",theObject@base.beta.spend.string,"\n")
+            cat("Base Beta spending function:",theObject@base.beta.spend.string,"\n")
             cat("Noncentrality:",theObject@noncentrality,"\n")
             cat("Current look:",theObject@current.look,"\n")
             cat("Current Alpha spending function:", (theObject@base.alpha.spend(1)*(1-theObject@current.alpha.spend)),"+",theObject@current.alpha.spend,'*Base alpha spending function\n');

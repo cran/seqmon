@@ -1,11 +1,11 @@
-e36273694003790b7281bd282a666e7d *DESCRIPTION
-bb63df16f1cb9f0803f397db0d88bc27 *LICENSE
+684c2840c904492913ed63fbf925194b *DESCRIPTION
+7c18071a1c328575c4b27b411d56f2d6 *LICENSE
 df22d87a9dccf41ab0cf8a3efb44b26e *NAMESPACE
-cd94108b17f7ca19ec8a30a6219e8c4b *R/sequential_design_classV2.2.R
+533d0117892ea3488c6ac0cf88d52ec4 *R/sequential_design_classV2.3.R
 f5dc984ae80d57d12c283398c79599be *man/alphaspend.Rd
-abb86a00c7c02548dd7d5f11f86577ed *man/alphaspendf.Rd
+224e7bcf4f4adb4e4ee54c3d0bae3889 *man/alphaspendf.Rd
 0ff922e7ba51d3717e70d7abd9ec1df3 *man/betaspend.Rd
-ea19287112bdc4b30e5e33913c638135 *man/betaspendf.Rd
+6aad9aeacaaaad5f67f8a1cf428a7eb8 *man/betaspendf.Rd
 c70634c09f9aaae32ad5f640c13408c1 *man/calcBoundaries.Rd
 c294dab116663d95a9299ce29c81a832 *man/curtail.Rd
 cbd9642525069a563bb14b4725e87ad6 *man/curtailDesign.Rd
