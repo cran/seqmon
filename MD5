@@ -1,7 +1,7 @@
-684c2840c904492913ed63fbf925194b *DESCRIPTION
-7c18071a1c328575c4b27b411d56f2d6 *LICENSE
+aa7a5883b28cbf40dfc821b330f2eb43 *DESCRIPTION
+02d6d1990a0851f4d6745323d782b0a5 *LICENSE
 df22d87a9dccf41ab0cf8a3efb44b26e *NAMESPACE
-533d0117892ea3488c6ac0cf88d52ec4 *R/sequential_design_classV2.3.R
+533d0117892ea3488c6ac0cf88d52ec4 *R/sequential_design_classV2.4.R
 f5dc984ae80d57d12c283398c79599be *man/alphaspend.Rd
 224e7bcf4f4adb4e4ee54c3d0bae3889 *man/alphaspendf.Rd
 0ff922e7ba51d3717e70d7abd9ec1df3 *man/betaspend.Rd
@@ -13,7 +13,7 @@ ea8938cf7141affb34b0d8dcb238af21 *man/getProbabilities.Rd
 0df01d7993fc9311e27aa37655d5a8f5 *man/plotBoundaries.Rd
 70cede04c982289e981efc01ca9a7b73 *man/print.Rd
 a1d804a8f66472270f461680bfd90963 *man/seqmon-package.Rd
-3262842788a1e5a79fe1ba6fddb1ec4f *man/seqmon.Rd
+75a882b7350dda8796263662cbefe355 *man/seqmon.Rd
 99227661dc8c2835f4cbdfd08db8f214 *man/sequential.design-class.Rd
 67b927d658eeb3ad79722c635192ac44 *man/sequential.design.Rd
 7963cc68e6425413720f8a3f830f2802 *man/setAlphaspendfString.Rd
