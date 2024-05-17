@@ -13,7 +13,7 @@ sequential.design(...)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+Additional arguments passed to the methods.
 }
 }
 \details{The sequential design class stores the information of a sequential design, including revision history. 

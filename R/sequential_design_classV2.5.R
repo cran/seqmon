@@ -322,14 +322,28 @@ setMethod(f="plotBoundaries",
                       }
                       )
 
-setGeneric(name="summary",
-                       def=function(theObject)
-                       {
-                               standardGeneric("summary")
-                       }
-                       )
+#' @name summaryDesign
+#' @aliases summaryDesign summaryDesign,sequential.design-method 
+#' @title Function that shows the cumulative probabilities for efficacy and futility
+#' @description Shows the cumulative probability for efficacy and futility under the null and alternative hypotheses, the corresponding p-values, and the boundaries for Z at each look.
+#' @usage \S4method{summaryDesign}{sequential.design}(theObject)
+#' @param theObject An object of class \code{sequential.design}.
+#' @return Prints a summary matrix to the console.
+#' @examples
+#' design2 <- calcBoundaries(sequential.design())
+#' # Summarize the design
+#' summaryDesign(design2)
+#' @export
 
-setMethod(f="summary",
+setGeneric(name="summaryDesign",
+           def=function(theObject)
+           {
+             standardGeneric("summaryDesign")
+           }
+)
+
+
+setMethod(f="summaryDesign",
                       signature="sequential.design",
                       definition=function(theObject)
                       { normalizedTimes<-theObject@times/max(theObject@times)
@@ -356,30 +370,30 @@ setMethod(f="summary",
                       )
 
 
-#'Displays the features of the design
-#'
-#''print' displays the look times, the base alpha and beta spending functions, and the noncentrality parameter
-#'
-#'@usage
-#'
-#'print(theObject)
-#'
-#'@examples
-#'design1<-sequential.design()
-#'design1<-calcBoundaries(design1)
-#'design1<-setAlphaspendfString(design1,"0.025*t^4")
-#'design1<-setBetaspendfString(design1,"0.15*t^3")
-#'print(design1)
+#' @name printDesign
+#' @aliases printDesign printDesign,sequential.design-method
+#' @title Function that displays the features of the design
+#' @description Displays the look times, the base alpha and beta spending functions, and the noncentrality parameter
+#' @usage \S4method{printDesign}{sequential.design}(theObject)
+#' @param theObject An object of class \code{sequential.design}.
+#' @return Prints the details to the console.
+#' @examples
+#' design1<-sequential.design()
+#' design1<-calcBoundaries(design1)
+#' design1<-setAlphaspendfString(design1,"0.025*t^4")
+#' design1<-setBetaspendfString(design1,"0.15*t^3")
+#' printDesign(design1)
+#' @export
 
-setGeneric(name="print",
+setGeneric(name="printDesign",
            def=function(theObject)
            {
-             standardGeneric("print")
+             standardGeneric("printDesign")
            }
 )
 
 
-setMethod(f="print",
+setMethod(f="printDesign",
           signature="sequential.design",
           definition=function(theObject)
           {
@@ -397,6 +411,7 @@ setMethod(f="print",
             cat("History of Beta spending functions used:", theObject@beta.func.history,"\n");
 
           })
+
 
 
 
@@ -475,7 +490,7 @@ setMethod(f="updateDesign",
 								ff_a<-function(x){return(seqmon(rep(-80,i),
                                  				c(upper.boundary[1:(i-1)],x),new.Normalized.t[1:i],1000*rep(1,i))[2*i]-levels.alpha[i])}
     								bs_a=try(uniroot(ff_a,c(-80,80),tol=0.000001)$root)
-								if (class(bs_a)=="try-error") 
+    								if (inherits(bs_a, "try-error"))
 									{upper.boundary[i]=80
 									}
 									else
@@ -483,8 +498,8 @@ setMethod(f="updateDesign",
 									}	
 								ff_b=function(x) {return(seqmon(c(lower.boundary[1:(i-1)],x)-theObject@noncentrality*sqrt(new.Normalized.t[1:i]),
                                   					upper.boundary[1:i]-theObject@noncentrality*sqrt(new.Normalized.t[1:i]),new.Normalized.t[1:i],1000*rep(1,i))[i]-levels.beta[i])}
-    								bs_b=try( uniroot(ff_b,c(-80,80),tol=0.000001)$root)
-    								if (class(bs_b)=="try-error") 
+    						bs_b=try( uniroot(ff_b,c(-80,80),tol=0.000001)$root)
+    						if (inherits(bs_b, "try-error")) 
 									{lower.boundary[i]=-80 
 									}
     									else 
@@ -533,7 +548,7 @@ setMethod(f="updateDesign",
 								ff_a<-function(x){return(seqmon(rep(-100,i),
                                  					c(upper.boundary[1:(i-1)],x),new.Normalized.t[1:i],1000*rep(1,i))[2*i]-levels.alpha[i])}
 								bs_a=try(uniroot(ff_a,c(-80,80),tol=0.000001)$root)
-								if (class(bs_a)=="try-error") 
+								if (inherits(bs_a, "try-error"))
 									{upper.boundary[i]=80
 									}
 									else
@@ -544,7 +559,7 @@ setMethod(f="updateDesign",
 									return(seqmon(c(lower.boundary[1:(i-1)],x)-theObject@noncentrality*sqrt(new.Normalized.t[1:i]),
                                   						upper.boundary[1:i]-theObject@noncentrality*sqrt(new.Normalized.t[1:i]),new.Normalized.t[1:i],1000*rep(1,i))[i]-levels.beta[i])}
 								bs_b=try( uniroot(ff_b,c(-80,80),tol=0.000001)$root)
-    								if (class(bs_b)=="try-error") 
+								if (inherits(bs_b, "try-error")) 
 									{lower.boundary[i]=-80 
 									}
     									else 
@@ -585,8 +600,8 @@ alphaspend<-function(levels,t,int=rep(500,length(t)),tol=0.005){
 	{for (i in 2:dimLevels)
 		{ff=function(x){return(seqmon(rep(-20,i),
                                  c(boundary[1:(i-1)],x),t[1:i],int[1:i])[2*i]-levels[i])}
-    		bs=try(uniroot(ff,c(-30,30),tol=tol)$root)
-		if (class(bs)=="try-error") 
+     bs=try(uniroot(ff,c(-30,30),tol=tol)$root)
+     if (inherits(bs, "try-error"))
 			{boundary[i]<-30 }
 			else boundary[i]=bs  	
   		}#for (i in 2:dimLevels)
@@ -606,8 +621,8 @@ betaspend<-function(levels,upperboundary,t,int=rep(500,length(t)),noncent,tol=0.
 	{for(i in 2:dimLevels)
 		{ff=function(x) {return(seqmon(c(boundary[1:(i-1)],x)-noncent*sqrt(t[1:i]),
                                   upperboundary[1:i]-noncent*sqrt(t[1:i]),t[1:i],int[1:i])[i]-levels[i])}
-    		bs=try( uniroot(ff,c(-30,30),tol=tol)$root)
-    		if (class(bs)=="try-error") 
+     bs=try( uniroot(ff,c(-30,30),tol=tol)$root)
+     if (inherits(bs, "try-error"))
 			{boundary[i]<--30 
 			}
     			else boundary[i]=bs

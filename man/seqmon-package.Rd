@@ -27,6 +27,6 @@ Schoenfeld DA, "A Simple Algorithm for Designing Group Sequential Clinical Trial
 \examples{
 design1<-sequential.design()
 design1<-calcBoundaries(design1)
-print(design1)
-summary(design1)
+printDesign(design1)
+summaryDesign(design1)
 }

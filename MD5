@@ -1,7 +1,7 @@
-aa7a5883b28cbf40dfc821b330f2eb43 *DESCRIPTION
-02d6d1990a0851f4d6745323d782b0a5 *LICENSE
-df22d87a9dccf41ab0cf8a3efb44b26e *NAMESPACE
-533d0117892ea3488c6ac0cf88d52ec4 *R/sequential_design_classV2.4.R
+70b22e34c2dc53bd867109ecb1f0e000 *DESCRIPTION
+54ced197928bb7c96356e0b1fbbe5e4d *LICENSE
+8baa2f8ca4692270b9e2bc187d7f9ff2 *NAMESPACE
+c4aed68bebc79810dee687a6d135e2f7 *R/sequential_design_classV2.5.R
 f5dc984ae80d57d12c283398c79599be *man/alphaspend.Rd
 224e7bcf4f4adb4e4ee54c3d0bae3889 *man/alphaspendf.Rd
 0ff922e7ba51d3717e70d7abd9ec1df3 *man/betaspend.Rd
@@ -11,11 +11,11 @@ c294dab116663d95a9299ce29c81a832 *man/curtail.Rd
 cbd9642525069a563bb14b4725e87ad6 *man/curtailDesign.Rd
 ea8938cf7141affb34b0d8dcb238af21 *man/getProbabilities.Rd
 0df01d7993fc9311e27aa37655d5a8f5 *man/plotBoundaries.Rd
-70cede04c982289e981efc01ca9a7b73 *man/print.Rd
-a1d804a8f66472270f461680bfd90963 *man/seqmon-package.Rd
+92d3ac3de0aec8f874bc33fdd63f82e0 *man/printDesign.Rd
+3dec1819b6f458968d70a400b7223310 *man/seqmon-package.Rd
 75a882b7350dda8796263662cbefe355 *man/seqmon.Rd
-99227661dc8c2835f4cbdfd08db8f214 *man/sequential.design-class.Rd
-67b927d658eeb3ad79722c635192ac44 *man/sequential.design.Rd
+ccd231bde4d69546ba30146d7cfb6e46 *man/sequential.design-class.Rd
+e4804383c44279c05ddb646ae3869399 *man/sequential.design.Rd
 7963cc68e6425413720f8a3f830f2802 *man/setAlphaspendfString.Rd
 69e744a9b09842ba318f9d18b0dd5d65 *man/setBaseAlphaspendf.Rd
 ed79c6b0fc61424145fd16a3bb6a4f3d *man/setBaseBetaspendf.Rd
@@ -24,5 +24,5 @@ ed79c6b0fc61424145fd16a3bb6a4f3d *man/setBaseBetaspendf.Rd
 413b3e45a62157a2231e02600d562ba0 *man/setDatestamp.Rd
 1fd83bf049b9fc842499a02e64719b56 *man/setNoncentrality.Rd
 ca2eecd9d36f486a0cf39a55b190180f *man/setTimes.Rd
-edbbb99b38b96fc1c676e32b57be4ce8 *man/summary.Rd
+311978decaadfe537cab9a7ee398f7b6 *man/summaryDesign.Rd
 f6a0f7bb5ba4c7d7f2159679a7c5c1f1 *man/updateDesign.Rd

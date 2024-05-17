@@ -54,8 +54,8 @@ Objects can be created by calls of the form \code{sequential.design(...)}.
     \item{curtailDesign}{\code{signature(theObject = "sequential.design")}: ... }
     \item{getProbabilities}{\code{signature(theObject = "sequential.design")}: ... }
     \item{plotBoundaries}{\code{signature(theObject = "sequential.design")}: ... }
-    \item{print}{\code{signature(theObject = "sequential.design")}: ... }
-    \item{summary}{\code{signature(theObject = "sequential.design")}: ... }
+    \item{printDesign}{\code{signature(theObject = "sequential.design")}: ... }
+    \item{summaryDesign}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setAlphaspendfString}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setBaseAlphaspendf}{\code{signature(theObject = "sequential.design")}: ... }
     \item{setBaseBetaspendf}{\code{signature(theObject = "sequential.design")}: ... }
